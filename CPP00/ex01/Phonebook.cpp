@@ -1,0 +1,130 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Phonebook.cpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ilopez-r <ilopez-r@student.42malaga.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/06/11 14:46:50 by ilopez-r          #+#    #+#             */
+/*   Updated: 2024/06/11 18:29:45 by ilopez-r         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "Phonebook.hpp"
+
+Phonebook::Phonebook()
+{
+	this->index = 0;
+}
+
+Phonebook::~Phonebook()
+{
+	std::cout << "PHONEBOOK OFF\n";
+}
+
+void Phonebook::new_contact()
+{
+	std::string	first;
+	std::string	last;
+	std::string	nick;
+	std::string	phone;
+	std::string	secret;
+
+	while (first.empty ()) 
+	{
+		std::cout << "Add first name: ";
+		if (!std::getline(std::cin, first, '\n'))
+     		return ;
+		for (size_t j = 0; j < first.length(); j++)
+		{
+			if (first[0] == 32 || (first[j] == 32 && (first[j + 1] == 32 || first[j + 1] == '\0')))
+			{
+				first = "";
+				break;
+			}
+			if (first[j] != 32 && (first[j] < 65 || first[j] > 90) && (first[j] < 97 || first[j] > 122))
+			{
+				first = "";
+				break;
+			}
+		}
+	}
+	while (last.empty ()) 
+	{
+		std::cout << "Add last name: ";
+		if (!std::getline(std::cin, last, '\n'))
+     		return ;
+		for (size_t j = 0; j < last.length(); j++)
+		{
+			if (last[0] == 32 || (last[j] == 32 && (last[j + 1] == 32 || last[j + 1] == '\0')))
+			{
+				last = "";
+				break;
+			}
+			if (last[j] != 32 && (last[j] < 65 || last[j] > 90) && (last[j] < 97 || last[j] > 122))
+			{
+				last = "";
+				break;
+			}
+		}
+	}
+	while (nick.empty ()) 
+	{
+		std::cout << "Add nickname: ";
+		if (!std::getline(std::cin, nick, '\n'))
+     		return ;
+	}
+	while (phone.empty ()) 
+	{
+		std::cout << "Add phone number: ";
+		if (!std::getline(std::cin, phone, '\n'))
+     		return ;
+		for (size_t j = 0; j < phone.length(); j++)
+		{
+			if (phone[j] < 48 || phone[j] > 57)
+			{
+				phone = "";
+				break;
+			}
+		}
+	}
+	while (secret.empty ()) 
+	{
+		std::cout << "Add darkest secret: ";
+		if (!std::getline(std::cin, secret, '\n'))
+     		return ;
+	}
+	this->contacts[this->index % 8] = Contact(first, last, nick, phone, secret);
+	this->index++;
+	
+}
+
+void Phonebook::search_contact()
+{
+	int	index;
+
+	if (this->index == 0)
+	{
+		std::cout << "EMPTY PHONEBOOK\n";
+		return ;
+	}
+	if (this->index > 7)
+		index = 8;
+	else
+		index = this->index % 8;
+	std::cout << " ___________________________________________\n";
+	std::cout << "|          |          |          |          |\n";
+	std::cout << "|     INDEX|      NAME| LAST NAME|  NICKNAME|\n";
+	std::cout << "|__________|__________|__________|__________|\n";
+	for (int i = 0; i < index; i++)
+	{
+		std::cout << "|          |          |          |          |\n";
+		std::cout << "|         " << i + 1 << "|";
+		this->contacts[i].print_str(1);
+		this->contacts[i].print_str(2);
+		this->contacts[i].print_str(3);
+		std::cout << "\n";
+		std::cout << "|__________|__________|__________|__________|\n";
+	}
+	
+}
