@@ -6,7 +6,7 @@
 /*   By: ilopez-r <ilopez-r@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 14:46:50 by ilopez-r          #+#    #+#             */
-/*   Updated: 2024/06/12 13:14:41 by ilopez-r         ###   ########.fr       */
+/*   Updated: 2024/06/12 17:23:40 by ilopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Phonebook::Phonebook()
 
 Phonebook::~Phonebook()
 {
-	std::cout << "PHONEBOOK OFF\n";
+	std::cout << "\nPHONEBOOK OFF\n";
 	std::cout << "\n";
 }
 
@@ -31,6 +31,7 @@ void Phonebook::new_contact()
 	std::string	phone;
 	std::string	secret;
 
+	std::cout << "\n";
 	while (first.empty ()) 
 	{
 		std::cout << "Add first name: ";
@@ -95,6 +96,7 @@ void Phonebook::new_contact()
 		if (!std::getline(std::cin, secret, '\n'))
      		return ;
 	}
+	std::cout << "\n";
 	this->contacts[this->index % 8] = Contact(first, last, nick, phone, secret);
 	this->index++;
 	
@@ -131,20 +133,12 @@ void Phonebook::search_contact()
 		std::cout << "|__________|__________|__________|__________|\n";
 	}
 	std::cout << "\n";
-	std::cout << "Select a contact to expand: ";
-	if (!std::getline(std::cin, input, '\n'))
-     	return ;
-	while (input[j] == '\0')
+	while (69)
 	{
-		std::cout << "NOT A CONTACT\n";
 		std::cout << "\nSelect a contact to expand: ";
-		input = "";
 		if (!std::getline(std::cin, input, '\n'))
      		return ;
-	}
-	while (input[j] != '\0')
-	{
-		if (input[j] < 48 || input[j] > 57)
+		while (input[j] == '\0')
 		{
 			std::cout << "NOT A CONTACT\n";
 			std::cout << "\nSelect a contact to expand: ";
@@ -152,9 +146,34 @@ void Phonebook::search_contact()
 			if (!std::getline(std::cin, input, '\n'))
      			return ;
 		}
-		j++;
+		while (input[j] != '\0')
+		{
+			if (input[j] < 48 || input[j] > 57)
+			{
+				std::cout << "NOT A CONTACT\n";
+				std::cout << "\nSelect a contact to expand: ";
+				input = "";
+				if (!std::getline(std::cin, input, '\n'))
+     				return ;
+			}
+			j++;
+		}
+		if (input[0] != '\0')
+		{
+			j = 0;
+			j = std::atoi(input.c_str());
+			if (j >= 1 && j <= 8 && j <= this->index)
+			{
+				this->contacts[j - 1].show_contact();
+				break ;
+			}
+			else
+			{
+				std::cout << "INVALID CONTACT\n";
+				input = "";
+				j = 0;
+			}
+		}
 	}
-	j = 0;
-	j = std::atoi(input.c_str());
-	this->contacts[j - 1].show_contact();
 }
+	
