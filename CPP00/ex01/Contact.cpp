@@ -6,7 +6,7 @@
 /*   By: ilopez-r <ilopez-r@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 15:20:19 by ilopez-r          #+#    #+#             */
-/*   Updated: 2024/06/11 18:26:59 by ilopez-r         ###   ########.fr       */
+/*   Updated: 2024/06/12 13:19:37 by ilopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,4 +67,14 @@ void	Contact::print_str(int flag)
 		}
 	}
 	std::cout << "|";
+}
+
+void	Contact::show_contact()
+{
+	std::cout << "\nName          -" << this->first_name;
+	std::cout << "\nLast name     -" << this->last_name;
+	std::cout << "\nNickname      -" << this->nickname;
+	std::cout << "\nPhone number  -" << this->phone_number;
+	std::cout << "\nDarkest secret-" << this->darkest_secret; 
+	std::cout << "\n\n";
 }

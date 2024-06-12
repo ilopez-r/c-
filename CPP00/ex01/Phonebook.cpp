@@ -6,7 +6,7 @@
 /*   By: ilopez-r <ilopez-r@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 14:46:50 by ilopez-r          #+#    #+#             */
-/*   Updated: 2024/06/11 18:29:45 by ilopez-r         ###   ########.fr       */
+/*   Updated: 2024/06/12 13:14:41 by ilopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ Phonebook::Phonebook()
 Phonebook::~Phonebook()
 {
 	std::cout << "PHONEBOOK OFF\n";
+	std::cout << "\n";
 }
 
 void Phonebook::new_contact()
@@ -102,10 +103,13 @@ void Phonebook::new_contact()
 void Phonebook::search_contact()
 {
 	int	index;
+	std::string	input;
+	int j = 0;
 
 	if (this->index == 0)
 	{
 		std::cout << "EMPTY PHONEBOOK\n";
+		std::cout << "\n";
 		return ;
 	}
 	if (this->index > 7)
@@ -126,5 +130,31 @@ void Phonebook::search_contact()
 		std::cout << "\n";
 		std::cout << "|__________|__________|__________|__________|\n";
 	}
-	
+	std::cout << "\n";
+	std::cout << "Select a contact to expand: ";
+	if (!std::getline(std::cin, input, '\n'))
+     	return ;
+	while (input[j] == '\0')
+	{
+		std::cout << "NOT A CONTACT\n";
+		std::cout << "\nSelect a contact to expand: ";
+		input = "";
+		if (!std::getline(std::cin, input, '\n'))
+     		return ;
+	}
+	while (input[j] != '\0')
+	{
+		if (input[j] < 48 || input[j] > 57)
+		{
+			std::cout << "NOT A CONTACT\n";
+			std::cout << "\nSelect a contact to expand: ";
+			input = "";
+			if (!std::getline(std::cin, input, '\n'))
+     			return ;
+		}
+		j++;
+	}
+	j = 0;
+	j = std::atoi(input.c_str());
+	this->contacts[j - 1].show_contact();
 }
