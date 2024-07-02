@@ -22,7 +22,7 @@ Weapon::~Weapon(void)
 	std::cout << this->type << " is broken\n";
 }
 
-const std::string Weapon::getType(void)
+const std::string &Weapon::getType(void)
 {
 	return (type);
 }
