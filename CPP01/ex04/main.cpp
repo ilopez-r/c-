@@ -6,20 +6,15 @@
 /*   By: ilopez-r <ilopez-r@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 17:11:13 by ilopez-r          #+#    #+#             */
-/*   Updated: 2024/07/01 19:17:36 by ilopez-r         ###   ########.fr       */
+/*   Updated: 2024/07/02 10:54:25 by ilopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <fstream>
 
-int main (int argc, char **argv)
+int new_file (char **argv)
 {
-	if (argc != 4)
-	{
-		std::cout << "Wrong number of arguments\n";
-		return (1);
-	}
 	std::string argv2 = std::string(argv[2]);
 	if (argv2.empty())
 	{
@@ -59,4 +54,16 @@ int main (int argc, char **argv)
 	}
 	og_file.close();
 	new_file.close();
+	return (0);
+}
+
+int main (int argc, char **argv)
+{
+	if (argc != 4)
+	{
+		std::cout << "Wrong number of arguments\n";
+		return (1);
+	}
+	new_file(argv);
+	return (0);
 }
