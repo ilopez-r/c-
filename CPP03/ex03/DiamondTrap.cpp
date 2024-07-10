@@ -17,8 +17,7 @@ DiamondTrap::DiamondTrap()
 	std::cout << "Default constructor called DiamondTrap\n";
 }
 
-DiamondTrap::DiamondTrap(std::string name): ClapTrap(name + "_clap_name"), ScavTrap(name), FragTrap(name)//, _name(name)
-{
+DiamondTrap::DiamondTrap(std::string name): ClapTrap(name + "_clap_name"), ScavTrap(name), FragTrap(name)
 	std::cout << "Attributes constructor called DiamondTrap\n";
 	_name = name;
 	_Energy = ScavTrap::_energy;
@@ -56,7 +55,7 @@ DiamondTrap::~DiamondTrap()
 
 void DiamondTrap::attack(const std::string& target)
 {
-	FragTrap::attack(target);
+	ScavTrap::attack(target);
 }
 
 void DiamondTrap::whoAmI()
