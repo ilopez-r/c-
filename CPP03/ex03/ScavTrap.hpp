@@ -6,7 +6,7 @@
 /*   By: ilopez-r <ilopez-r@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 15:17:10 by ilopez-r          #+#    #+#             */
-/*   Updated: 2024/07/09 16:31:46 by ilopez-r         ###   ########.fr       */
+/*   Updated: 2024/07/10 11:59:45 by ilopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 class ScavTrap:virtual public ClapTrap
 {
-	private:
-			
+	protected:
+			static const int _energy = 50;
 	public:
 			ScavTrap (void);
 			ScavTrap(std::string name);

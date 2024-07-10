@@ -6,7 +6,7 @@
 /*   By: ilopez-r <ilopez-r@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 16:18:33 by ilopez-r          #+#    #+#             */
-/*   Updated: 2024/07/10 11:31:07 by ilopez-r         ###   ########.fr       */
+/*   Updated: 2024/07/10 12:24:14 by ilopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,7 @@ DiamondTrap::DiamondTrap(std::string name): ClapTrap(name + "_clap_name"), ScavT
 {
 	std::cout << "Attributes constructor called DiamondTrap\n";
 	_name = name;
-	_Hit = FragTrap::_Hit;
-	_Energy = 50; //ScavTrap::_Energy;
-	_Attack = FragTrap::_Attack;
+	_Energy = ScavTrap::_energy;
 	std::cout << "Hit: " << _Hit << "\n";
 	std::cout << "Energy: " << _Energy << "\n";
 	std::cout << "Attack: " << _Attack << "\n";
@@ -63,6 +61,14 @@ void DiamondTrap::attack(const std::string& target)
 
 void DiamondTrap::whoAmI()
 {
-	std::cout << "DiamondTrap name is " << _name << "\n";
-	std::cout << "ClapTrap name is " << ClapTrap::_name << "\n";
+	if (_Hit > 0)
+	{
+		std::cout << "DiamondTrap name is " << _name << "\n";
+		std::cout << "ClapTrap name is " << ClapTrap::_name << "\n";
+	}
+	else
+	{
+		std::cout << "DiamondTrap name was " << _name << " but now is dead :(\n";
+		std::cout << "ClapTrap name was " << ClapTrap::_name << " but now is dead :(\n";
+	}
 }

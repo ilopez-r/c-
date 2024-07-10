@@ -6,7 +6,7 @@
 /*   By: ilopez-r <ilopez-r@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 12:13:44 by ilopez-r          #+#    #+#             */
-/*   Updated: 2024/07/09 16:40:43 by ilopez-r         ###   ########.fr       */
+/*   Updated: 2024/07/10 12:25:01 by ilopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ int main() {
         diamond1.attack("PEPE");
     }
     diamond1.beRepaired(10);
+    diamond1.takeDamage(100);
+    diamond1.whoAmI();
 
     return 0;
 }
