@@ -6,7 +6,7 @@
 /*   By: ilopez-r <ilopez-r@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 15:55:10 by ilopez-r          #+#    #+#             */
-/*   Updated: 2024/07/09 16:30:40 by ilopez-r         ###   ########.fr       */
+/*   Updated: 2024/07/10 11:24:09 by ilopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,9 @@ FragTrap::FragTrap()
 	std::cout << "Default constructor called FragTrap\n";
 }
 
-FragTrap::FragTrap(std::string name)
+FragTrap::FragTrap(std::string name): ClapTrap(name)
 {
 	std::cout << "Attributes constructor called FragTrap\n";
-	_name = name;
 	_Hit = 100;
 	_Energy = 100;
 	_Attack = 30;
