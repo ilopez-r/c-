@@ -1,7 +1,7 @@
 ![image](https://github.com/ilopez-r/resources/blob/main/covers/cover-cpp-bonus.png?raw=true)
 
 ## Subject
-This is the [subjects folder](https://github.com/ilopez-r/resources/tree/main/subjects/cpp) for these project.
+This is the [subjects folder](https://github.com/ilopez-r/resources/tree/main/subjects/cpp) for this project.
 
 ## Introduction
 This repository includes all the exercises from C++ modules 0-9.
