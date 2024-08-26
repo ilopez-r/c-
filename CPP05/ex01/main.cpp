@@ -6,7 +6,7 @@
 /*   By: ilopez-r <ilopez-r@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 16:06:02 by ilopez-r          #+#    #+#             */
-/*   Updated: 2024/08/26 17:13:35 by ilopez-r         ###   ########.fr       */
+/*   Updated: 2024/08/26 17:22:02 by ilopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ int main (void)
 		Bureaucrat c;
 		Bureaucrat d(b);
 		e = new Bureaucrat(a);
-		f1 = new Form("B1", 150, 100);
-		Form f2("B2", 100, 75);
+		f1 = new Form("F1", 150, 100);
+		Form f2("F2", 100, 75);
 		std::cout << "a: " << a << "\n";
 		std::cout << "b: " << b << "\n";
 		std::cout << "c: " << c << "\n";
@@ -33,10 +33,14 @@ int main (void)
 		std::cout << "d: " << d << "\n";
 		e->increment_grade();
 		std::cout << "e: " << *e << "\n";
+		std::cout << *f1 << "\n";
+		std::cout << f2 << "\n";
 		a.signForm(*f1);
 		b.signForm(*f1);
 		b.signForm(f2);
 		a.signForm(f2);
+		std::cout << *f1 << "\n";
+		std::cout << f2 << "\n";
 		while (a.getGrade() <= 151)
 			a.decrement_grade();
 	}

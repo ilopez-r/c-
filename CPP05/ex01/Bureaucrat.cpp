@@ -6,7 +6,7 @@
 /*   By: ilopez-r <ilopez-r@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 13:12:03 by ilopez-r          #+#    #+#             */
-/*   Updated: 2024/08/26 17:06:27 by ilopez-r         ###   ########.fr       */
+/*   Updated: 2024/08/26 17:23:35 by ilopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ const char	*Bureaucrat::GradeTooLowException::what() const throw()
 void Bureaucrat::signForm(Form &form)
 {
 	if (form.getSigned() == "Yes")
-		std::cout << getName() << " already signed " << form.getName() << ".\n";
+		std::cout << form.getName() << " is already signed" << ".\n";
 	else
 	{
 		try
