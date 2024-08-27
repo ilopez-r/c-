@@ -6,7 +6,7 @@
 /*   By: ilopez-r <ilopez-r@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 13:12:03 by ilopez-r          #+#    #+#             */
-/*   Updated: 2024/08/27 19:04:12 by ilopez-r         ###   ########.fr       */
+/*   Updated: 2024/08/27 19:03:28 by ilopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ const char	*Bureaucrat::GradeTooLowException::what() const throw()
 	return("Grade Too Low");
 }
 
-void Bureaucrat::signForm(Form &form)
+void Bureaucrat::signForm(AForm &form)
 {
 	if (form.getSigned() == "Yes")
 		std::cout << getName() << " tried to sign " << form.getName() << " but is already signed" << ".\n";
@@ -97,6 +97,20 @@ void Bureaucrat::signForm(Form &form)
 		{
 			std::cout << getName() << " couldn't sign " << form.getName() << " because " << e.what() << ".\n";
 		}
+	}
+}
+
+void Bureaucrat::executeForm(AForm const & form)
+{
+	try
+	{
+		if (form.getSigned() == "Yes" && getGrade() <= form.getGradeexec())
+			std::cout << getName() << " executed " << form.getName() << ".\n";
+		form.execute(*this);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
 	}
 }
 

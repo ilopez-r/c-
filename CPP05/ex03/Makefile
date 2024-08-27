@@ -8,6 +8,11 @@ RM = rm -rf
 
 SRCS = main.cpp\
 		Bureaucrat.cpp\
+		AForm.cpp\
+		PresidentialPardonForm.cpp\
+		RobotomyRequestForm.cpp\
+		ShrubberyCreationForm.cpp\
+		Intern.cpp\
 
 OBJS = $(SRCS:.cpp=.o)
 
@@ -24,6 +29,7 @@ clean:
 
 fclean:
 	@ $(RM) $(NAME) $(OBJS)
+	@rm -f *_shrubbery
 
 re : fclean all
 

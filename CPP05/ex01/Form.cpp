@@ -6,7 +6,7 @@
 /*   By: ilopez-r <ilopez-r@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 16:44:21 by ilopez-r          #+#    #+#             */
-/*   Updated: 2024/08/26 17:20:22 by ilopez-r         ###   ########.fr       */
+/*   Updated: 2024/08/27 19:04:21 by ilopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 Form::Form()  : _name ("Default"), _signed (false), _gradesign(150), _gradeexec(150)
 {
-	std::cout << "Default constructor called Form\n";
+	//std::cout << "Default constructor called Form\n";
 }
 
 Form::Form(std::string name, int gradesign, int gradeexec) : _name(name), _signed(false), _gradesign(gradesign), _gradeexec(gradeexec)
 {
-	std::cout << "Constructor called Form\n";
+	//std::cout << "Constructor called Form\n";
 	if (gradesign < 1|| gradeexec < 1)
 		throw Form::GradeTooHighException();
 	if (gradesign > 150|| gradeexec > 150)
@@ -28,20 +28,20 @@ Form::Form(std::string name, int gradesign, int gradeexec) : _name(name), _signe
 
 Form::Form(const Form& copy) : _name(copy._name), _signed(copy._signed), _gradesign(copy._gradesign), _gradeexec(copy._gradeexec)
 {
-	std::cout << "Copy constructor called Form\n";
+	//std::cout << "Copy constructor called Form\n";
 }
 
 Form& Form::operator=(const Form& other)
 {
 	if(this != &other)
 		_signed = other._signed;
-	std::cout << "Copy assignment operator called Form\n";
+	//std::cout << "Copy assignment operator called Form\n";
 	return (*this);
 }
 
 Form::~Form()
 {
-	std::cout << "Destructor called Form\n";
+	//std::cout << "Destructor called Form\n";
 }
 
 std::string Form::getName(void) const

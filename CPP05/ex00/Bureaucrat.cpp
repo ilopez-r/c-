@@ -6,7 +6,7 @@
 /*   By: ilopez-r <ilopez-r@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 13:12:03 by ilopez-r          #+#    #+#             */
-/*   Updated: 2024/08/26 13:42:51 by ilopez-r         ###   ########.fr       */
+/*   Updated: 2024/08/27 19:04:32 by ilopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 Bureaucrat::Bureaucrat() : _name ("Default"), _grade(150)
 {
-	std::cout << "Default constructor called\n";
+	//std::cout << "Default constructor called\n";
 }
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name)
 {
-	std::cout << "Constructor called\n";
+	//std::cout << "Constructor called\n";
 	if (grade < 1)
 		throw Bureaucrat::GradeTooHighException();
 	if (grade > 150)
@@ -31,20 +31,20 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name)
 Bureaucrat::Bureaucrat(const Bureaucrat& copy) : _name(copy._name)
 {
 	_grade = copy._grade;
-	std::cout << "Copy constructor called\n";
+	//std::cout << "Copy constructor called\n";
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
 {
 	if(this != &other)
 		_grade = other._grade;
-	std::cout << "Copy assignment operator called\n";
+	//std::cout << "Copy assignment operator called\n";
 	return (*this);
 }
 
 Bureaucrat::~Bureaucrat()
 {
-	std::cout << "Destructor called\n";
+	//std::cout << "Destructor called\n";
 }
 
 std::string Bureaucrat::getName(void) const
