@@ -1,23 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   C.hpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ilopez-r <ilopez-r@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/29 17:23:18 by ilopez-r          #+#    #+#             */
-/*   Updated: 2024/08/29 19:09:29 by ilopez-r         ###   ########.fr       */
+/*   Created: 2024/08/29 20:11:46 by ilopez-r          #+#    #+#             */
+/*   Updated: 2024/08/29 20:11:57 by ilopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#pragma once
+# include "Base.hpp"
 
-int	main(int argc, char **argv)
+class C : public Base
 {
-	if (argc != 2)
-	{
-		std::cout << "Error: incorrect number of arguments\n";
-		return (1);
-	}
-	ScalarConverter::convert(argv[1]);
-}
+	private:
+			
+	public:
+			
+};

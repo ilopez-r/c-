@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Data.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ilopez-r <ilopez-r@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/29 17:23:18 by ilopez-r          #+#    #+#             */
-/*   Updated: 2024/08/29 19:09:29 by ilopez-r         ###   ########.fr       */
+/*   Created: 2024/08/29 18:43:02 by ilopez-r          #+#    #+#             */
+/*   Updated: 2024/08/29 19:57:33 by ilopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#pragma once
+# include <iostream>
 
-int	main(int argc, char **argv)
+class Data
 {
-	if (argc != 2)
-	{
-		std::cout << "Error: incorrect number of arguments\n";
-		return (1);
-	}
-	ScalarConverter::convert(argv[1]);
-}
+	private:
+			std::string _name;
+	public:
+		Data(void);
+		Data(const Data& copy);
+		Data& operator=(const Data &other);
+		~Data();
+};

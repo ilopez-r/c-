@@ -5,19 +5,20 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ilopez-r <ilopez-r@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/29 17:23:18 by ilopez-r          #+#    #+#             */
-/*   Updated: 2024/08/29 19:09:29 by ilopez-r         ###   ########.fr       */
+/*   Created: 2024/08/29 19:05:03 by ilopez-r          #+#    #+#             */
+/*   Updated: 2024/08/29 19:58:39 by ilopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#include "Data.hpp"
+#include "Serializer.hpp"
 
-int	main(int argc, char **argv)
+int main ()
 {
-	if (argc != 2)
-	{
-		std::cout << "Error: incorrect number of arguments\n";
-		return (1);
-	}
-	ScalarConverter::convert(argv[1]);
+	Data src;
+	std::cout << &src << "\n";
+	uintptr_t raw = Serializer::serialize(&src);
+	std::cout << raw << "\n";
+	Data *dest = Serializer::deserialize(raw);
+	std::cout << &dest << "\n";
 }

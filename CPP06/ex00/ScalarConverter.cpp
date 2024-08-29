@@ -6,7 +6,7 @@
 /*   By: ilopez-r <ilopez-r@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 12:49:46 by ilopez-r          #+#    #+#             */
-/*   Updated: 2024/08/29 18:14:14 by ilopez-r         ###   ########.fr       */
+/*   Updated: 2024/08/29 19:10:29 by ilopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,6 @@ void ScalarConverter::convert(std::string str)
 		}
 		case 3: //CHAR
 		{
-			std::cout << "3\n";
 			std::cout << "char: '" << str[0] << "'\n";
 			std::cout << "int: " << static_cast<int>(str[0]) << "\n";
 			std::cout << "float: " << static_cast<float>(str[0]) << ".0f\n";
@@ -98,7 +97,6 @@ void ScalarConverter::convert(std::string str)
 		}
 		case 4: //INT
 		{
-			std::cout << "4\n";
 			int i = atoi(str.c_str());
 			if(isprint(static_cast<char>(i)))
 				std::cout << "char: " << "'" << static_cast<char>(i) << "'\n";
@@ -118,7 +116,6 @@ void ScalarConverter::convert(std::string str)
 		}
 		case 5: //FLOAT
 		{
-			std::cout << "5\n";
 			float f = atof(str.c_str());
 			if(isprint(static_cast<char>(f)))
 				std::cout << "char: " << "'" << static_cast<char>(f) << "'\n";
@@ -144,7 +141,6 @@ void ScalarConverter::convert(std::string str)
 		}
 		case 6: //DOUBLE
 		{
-			std::cout << "6\n";
 			double d = atof(str.c_str());
 			if(isprint(static_cast<char>(d)))
 				std::cout << "char: " << "'" << static_cast<char>(d) << "'\n";

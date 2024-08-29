@@ -1,23 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Data.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ilopez-r <ilopez-r@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/29 17:23:18 by ilopez-r          #+#    #+#             */
-/*   Updated: 2024/08/29 19:09:29 by ilopez-r         ###   ########.fr       */
+/*   Created: 2024/08/29 19:11:58 by ilopez-r          #+#    #+#             */
+/*   Updated: 2024/08/29 19:58:16 by ilopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#include "Data.hpp"
 
-int	main(int argc, char **argv)
+Data::Data()
 {
-	if (argc != 2)
-	{
-		std::cout << "Error: incorrect number of arguments\n";
-		return (1);
-	}
-	ScalarConverter::convert(argv[1]);
+	_name = "Default";
+	//std::cout << "Default constructor called\n";
+}
+
+Data::Data(const Data& copy)
+{
+	if (this != &copy)
+		*this = copy;
+	//std::cout << "Copy constructor called\n";
+}
+
+Data& Data::operator=(const Data& other)
+{
+	(void)other;
+	//std::cout << "Copy assignment operator called\n";
+	return (*this);
+}
+
+Data::~Data()
+{
+	//std::cout << "Destructor called\n";
 }
