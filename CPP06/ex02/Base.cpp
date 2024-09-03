@@ -6,7 +6,7 @@
 /*   By: ilopez-r <ilopez-r@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 20:02:04 by ilopez-r          #+#    #+#             */
-/*   Updated: 2024/08/29 21:04:45 by ilopez-r         ###   ########.fr       */
+/*   Updated: 2024/08/30 13:16:46 by ilopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,10 @@ Base *generate(void)
 			return (b = new A());
 		case 1:
 			return (b = new B());
+		default:
+			return (b = new C());
 	}
-	return (b = new C());
+	return (NULL);
 }
 
 void identify(Base* p)
