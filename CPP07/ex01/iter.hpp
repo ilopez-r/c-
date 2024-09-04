@@ -6,7 +6,7 @@
 /*   By: ilopez-r <ilopez-r@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/30 15:32:07 by ilopez-r          #+#    #+#             */
-/*   Updated: 2024/08/30 16:14:18 by ilopez-r         ###   ########.fr       */
+/*   Updated: 2024/09/04 15:45:05 by ilopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,23 @@
 #include <iostream>
 
 template <typename T>
-void function(T &a, int i, int j)
+void function(T &a)
 {
-	std::cout << a;
-	if (j != i - 1)
-		std:: cout << ", ";
+	std::cout << a << " ";
 }
 
-template <typename T>
-void iter(T *a, int i, void (*f)(T &c, int i, int j))
+void functionINT(int i)
+{
+	std::cout << i << " ";
+}
+
+template <typename T, typename Q>
+void iter(T *a, int length, Q f)
 {
 	int j = 0;
-	while (j < i)
+	while (j < length)
 	{
-		f(a[j], i, j);
+		f(a[j]);
 		j++;
 	}
 	std::cout << "\n";
