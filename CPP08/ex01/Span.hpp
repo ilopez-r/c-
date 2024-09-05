@@ -6,7 +6,7 @@
 /*   By: ilopez-r <ilopez-r@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 18:02:04 by ilopez-r          #+#    #+#             */
-/*   Updated: 2024/09/04 19:39:04 by ilopez-r         ###   ########.fr       */
+/*   Updated: 2024/09/05 20:28:37 by ilopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,11 @@ class Span
 {
 	private:
 			unsigned int _N;
-			std::vector<int> _container;
+			
 	public:
+			std::vector<int> _container;
 			Span (void);
-			Span (unsigned int N);
+			Span (long long int N);
 			Span (const Span& copy);
 			Span& operator=(const Span& other);
 			~Span (void);
@@ -40,5 +41,5 @@ class Span
 				public:
 						const char	*what() const throw();
 			};
-			void addManyNumbers();
+			void addManyNumbers(std::vector<int>::iterator b, std::vector<int>::iterator e);
 };

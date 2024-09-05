@@ -6,7 +6,7 @@
 /*   By: ilopez-r <ilopez-r@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 18:02:02 by ilopez-r          #+#    #+#             */
-/*   Updated: 2024/09/04 22:21:12 by ilopez-r         ###   ########.fr       */
+/*   Updated: 2024/09/05 21:10:59 by ilopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,22 +18,29 @@ Span::Span()
 	//std::cout << "Default constructor called\n";
 }
 
-Span::Span(unsigned int N)
+Span::Span(long long int N)
 {
 	//std::cout << "Constructor called\n";
-	_N = N;
+	if (N >= 0 && N <= 4294967295)
+		_N = static_cast<unsigned int>(N);
+	else
+		throw std::out_of_range("Parametrer should be on the unsigned int limits (0 - 4294967295)");
 }
 
 Span::Span(const Span& copy)
 {
 	_N = copy._N;
+	_container = copy._container;
 	//std::cout << "Copy constructor called\n";
 }
 
 Span& Span::operator=(const Span& other)
 {
 	if(this != &other)
+	{
 		_N = other._N;
+		_container = other._container;
+	}
 	//std::cout << "Copy assignment operator called\n";
 	return (*this);
 }
@@ -45,10 +52,17 @@ Span::~Span()
 
 void Span::addNumber(int i)
 {
-	if (_N >= 1 && _container.size() < _N)
-		_container.push_back(i);
-	else
-		throw Span::AddNumberException();
+	try
+	{
+		if (_container.size() < _N)
+			_container.push_back(i);
+		else
+			throw Span::AddNumberException();
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 }
 
 const char	*Span::AddNumberException::what() const throw()
@@ -58,71 +72,71 @@ const char	*Span::AddNumberException::what() const throw()
 
 int Span::shortestSpan()
 {
-	if (_N > 2 && _container.size() != 0)
+	try
 	{
-		std::sort(_container.begin(), _container.end());
-		unsigned int i = 2;
-		unsigned int j = 3;
-		int shortestspan = _container[1] - _container[0];
-		while (j < _N)
+		if (_container.size() > 1)
 		{
-			if (_container[i] != 0 && _container[j] != 0 && (shortestspan > (_container[j] - _container[i])))
-				shortestspan = _container[j] - _container[i];
-			j++;
-			i++;
+			std::sort(_container.begin(), _container.end());
+			int shortestspan = _container[1] - _container[0];
+			for (long unsigned int i = 1; i < (_container.size() - 1); i++)
+			{
+				if (shortestspan > (_container[i + 1] - _container[i]))
+					shortestspan = _container[i + 1] - _container[i];
+			}
+			return (shortestspan);
 		}
-		return (shortestspan);
+		else
+		{
+			throw Span::SpanException();
+			
+		}
 	}
-	else if (_N == 2 && _container[0] != 0 && _container[1] != 0)
-		return (_container[1] - _container[0]);
-	else
-		throw Span::SpanException();
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << "\n";
+		return (-1);
+	}
 }
 
 int Span::longestSpan()
 {
-	if (_N > 2 && _container.size() != 0)
+	try
 	{
-		/*std::sort(_container.begin(), _container.end());
-		std::cout << *_container.begin() << "\n";
-		std::cout << *_container.end() << "\n";
-		int longestspan = *_container.end() - *_container.begin();*/
-		/*int smallest = _container[0];
-		int n = _N;
-		//std::cout << n << "\n";
-		while (_container[n - 1] == 0)
+		if (_container.size() > 1)
 		{
-			n--;
-			//std::cout << _container[n - 1] << "\n";
+			std::sort(_container.begin(), _container.end());
+			int longestspan = *(_container.end() - 1) - *_container.begin();
+			return (longestspan);
 		}
-		//std::cout << n << "\n";
-		//std::cout << _container[8] << "\n";
-		int biggest = _container[n - 1];
-		int longestspan = biggest - smallest;*/
-		std::sort(_container.begin(), _container.end());
-		std::vector<int>::iterator begin = _container.begin();
-		std::vector<int>::iterator	i = begin + 1;
-		int	longestspan = -2147483648;
-		while (begin < _container.end())
+		else
 		{
-			while (i < _container.end())
-			{
-				if ((*i - *begin) > longestspan)
-					longestspan = *i - *begin;
-				i++;
-			}
-			begin++;
-			i = begin + 1;
+			throw Span::SpanException();
+			
 		}
-		return (longestspan);
 	}
-	else if (_N == 2 && _container[0] != 0 && _container[1] != 0)
-		return (_container[1] - _container[0]);
-	else
-		throw Span::SpanException();
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << "\n";
+		return (-1);
+	}
 }
 
 const char	*Span::SpanException::what() const throw()
 {
 	return ("Impossible to show the span between elements");
+}
+
+void Span::addManyNumbers(std::vector<int>::iterator b, std::vector<int>::iterator e)
+{
+	try
+	{
+		if ((_container.size() + std::distance(b, e)) <= _N && b != e)
+			_container.insert(_container.end(), b, e);
+		else
+			throw Span::AddNumberException();
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 }
