@@ -52,7 +52,7 @@ Subtype Polymorphism, Abstract Classes and Interfaces
 - [ex01: I don't want to set the world on fire](https://github.com/ilopez-r/cpp/tree/main/CPP04/ex01)
 - [ex02: Abstract class](https://github.com/ilopez-r/cpp/tree/main/CPP04/ex02)
 
-## [C++ 05https://github.com/ilopez-r/cpp/tree/main/CPP05)
+## [C++ 05](https://github.com/ilopez-r/cpp/tree/main/CPP05)
 
 Repetition and Exceptions
 
