@@ -1,34 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
+/*   RPN.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ilopez-r <ilopez-r@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/30 17:42:33 by ilopez-r          #+#    #+#             */
-/*   Updated: 2024/10/01 16:55:30 by ilopez-r         ###   ########.fr       */
+/*   Created: 2024/09/30 11:25:50 by ilopez-r          #+#    #+#             */
+/*   Updated: 2024/10/01 14:27:01 by ilopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include <iostream>
-#include <fstream>
-#include <map>
 #include <string>
-#include <cstdlib>
+#include <stack>
 
-
-class BitcoinExchange
+class RPN
 {
 	private:
-		std::map<std::string, double> _btc;
+			std::stack<int> _stack;
 	public:
-		BitcoinExchange();
-		BitcoinExchange(const std::string &database, const std::string &inputFile);
-		BitcoinExchange(const BitcoinExchange & copy);
-		~BitcoinExchange();
-		BitcoinExchange & operator=(const BitcoinExchange & other);
-		void extractInputFile(std::ifstream &fileStream);
-		void extractDbFile(std::ifstream &dbStream);
+			RPN();
+			RPN(const std::string &str);
+			RPN(const RPN &copy);
+			~RPN();
+			RPN &operator=(const RPN &other);
+			void calculate(char c);
 };
