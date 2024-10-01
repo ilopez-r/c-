@@ -6,7 +6,7 @@
 /*   By: ilopez-r <ilopez-r@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 17:40:07 by ilopez-r          #+#    #+#             */
-/*   Updated: 2024/10/01 14:25:22 by ilopez-r         ###   ########.fr       */
+/*   Updated: 2024/10/01 17:39:23 by ilopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,23 @@ PmergeMe::PmergeMe(char **argv)
 {
 	_size = 0;
     int value = 0;
+	int flag = 0;
     for (int i = 1; argv[i]; i++)
     {
         value = std::atoi(argv[i]);
         if(value < 0)
             throw std::invalid_argument("Error: Negative values are not allowed");
-        if(std::find(_vector.begin(), _vector.end(), value) == _vector.end() && value >= 0)
+        if(std::find(_vector.begin(), _vector.end(), value) == _vector.end())
 		{
             _vector.push_back(value);
             _list.push_back(value);
             _size++;
         }
+		else if (flag != 1)
+		{
+			flag = 1;
+			std::cout << "Caution: Duplicated numbers will be removed!" << std::endl << std::endl;
+		}
     }
 }
 

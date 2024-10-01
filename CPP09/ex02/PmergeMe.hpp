@@ -6,7 +6,7 @@
 /*   By: ilopez-r <ilopez-r@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 13:36:07 by ilopez-r          #+#    #+#             */
-/*   Updated: 2024/10/01 14:30:22 by ilopez-r         ###   ########.fr       */
+/*   Updated: 2024/10/01 17:20:02 by ilopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 #include <list>
 #include <climits>
 
-
 class PmergeMe
 {
 	private:
@@ -28,7 +27,7 @@ class PmergeMe
 	public:
 			std::vector<int>	_vector;
 			std::list<int>	  _list;
-			int		_size; 
+			int		_size;
 			PmergeMe();
 			PmergeMe(char **av);
 			PmergeMe(const PmergeMe &copy);
