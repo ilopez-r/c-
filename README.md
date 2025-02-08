@@ -51,6 +51,7 @@ Subtype Polymorphism, Abstract Classes and Interfaces
 - [ex00: Polymorphism](https://github.com/ilopez-r/cpp/tree/main/CPP04/ex00)
 - [ex01: I don't want to set the world on fire](https://github.com/ilopez-r/cpp/tree/main/CPP04/ex01)
 - [ex02: Abstract class](https://github.com/ilopez-r/cpp/tree/main/CPP04/ex02)
+- [ex03: Interface & recap](https://github.com/ilopez-r/cpp/tree/main/CPP04/ex03)
 
 ## [C++ 05](https://github.com/ilopez-r/cpp/tree/main/CPP05)
 
